@@ -20,7 +20,8 @@
 #include "ElUsuario.h"
 #include "ElEvento.h"
 #include "Lista.h"
-
+static dia diaActual;
+extern ElUsuario datosUsuario;
 namespace PROYECTO2MARIANAGONZALEZ1097019 {
 
 	using namespace System;
@@ -30,8 +31,7 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace std;
-	static dia diaActual;
-	extern ElUsuario datosUsuario;
+	
 
 	/// <summary>
 	/// Summary for MyForm2
@@ -440,7 +440,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		label4->Enabled = true;
 		recordatorio = true;
 	}
-	if (radioButton3->Checked == false && radioButton2->Checked == false&& radioButton1->Checked == false)
+	if (radioButton3->Checked == false && radioButton2->Checked == false && radioButton1->Checked == false)
 	{
 		System::Windows::Forms::MessageBox::Show("Debe seleccionar un tipo de evento", "Aviso");
 	}
@@ -527,7 +527,6 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		diaActual.eventos.insert(pair<string, ElEvento>("Recordatorio", eventos));
 	}
 	MyForm2::Visible = false;
-
 }
 
 };

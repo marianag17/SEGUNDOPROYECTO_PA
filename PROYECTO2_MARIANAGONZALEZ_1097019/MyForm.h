@@ -11,6 +11,7 @@
 #include "ElUsuario.h"
 #include <string>
 #include "MyForm2.h"
+extern ElUsuario datosUsuario;
 namespace PROYECTO2MARIANAGONZALEZ1097019 {
 
 	using namespace System;
@@ -20,8 +21,6 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace std;
-	ElUsuario datosUsuario;
-
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
@@ -249,93 +248,93 @@ private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs
 	// For each que recorre los dias Registrados (Dias con eventos)
 	for each (dia losdias in datosUsuario.dias)
 	{
-	//	// Verifica si la fecha del dia registrado es igual a la fecha seleccionada en el monthCalendar
-	//	if (losdias.fecha == FechaSeleccionada)
-	//	{
-	//		// Recorre los eventos Registrados en el dia 
-	//		multimap<std::string, ElEvento>::iterator eventosEnDia = losdias.eventos.begin();
-	//		while (eventosEnDia != losdias.eventos.end())
-	//		{
+		// Verifica si la fecha del dia registrado es igual a la fecha seleccionada en el monthCalendar
+		if (losdias.fecha == FechaSeleccionada)
+		{
+			// Recorre los eventos Registrados en el dia 
+			multimap<std::string, ElEvento>::iterator eventosEnDia = losdias.eventos.begin();
+			while (eventosEnDia != losdias.eventos.end())
+			{
 
-	//			// Si la llave es actividad muestra las actividades
-	//			if (eventosEnDia->first == "actividad")
-	//			{
-	//			
-	//				listBox1->Items->Add("");
-	//				// Convierte las propiedades de los eventos a String
-	//				tipo = gcnew String(eventosEnDia->first.c_str());
-	//				descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
-	//				prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
-	//				String^ horaInicio = gcnew String(eventosEnDia->second.horaInicio.c_str());
-	//				String^ horaFin = gcnew String(eventosEnDia->second.horaFin.c_str());
-	//				String^ lugarReunion = gcnew String(eventosEnDia->second.lugarReunion.c_str());
-	//				String^ personaInvolucrada = gcnew String(eventosEnDia->second.personaInvolucrada.c_str());
-	//				String^ materiales = gcnew String(eventosEnDia->second.materiales.c_str());
-	//				String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
-	//				// imprime las propiedades del evento en el ListBox
-	//				listBox1->Items->Add("Tipo de Evento: " + tipo);
-	//				listBox1->Items->Add("Id del Evento: " + id);
-	//				listBox1->Items->Add("Descripcion del Evento: " + descripcion);
-	//				listBox1->Items->Add("prioridad del Evento: " + prioridad);
-	//				listBox1->Items->Add("Hora de Inicio: " + horaInicio);
-	//				listBox1->Items->Add("Hora de Finalizacion: " + horaFin);
-	//				listBox1->Items->Add("Lugar de Reunion: " + lugarReunion);
-	//				listBox1->Items->Add("Persona Involucrada: " + personaInvolucrada);
-	//				listBox1->Items->Add("Materiales: " + materiales);
+				// Si la llave es actividad muestra las actividades
+				if (eventosEnDia->first == "actividad")
+				{
+				
+					listBox1->Items->Add("");
+					// Convierte las propiedades de los eventos a String
+					tipo = gcnew String(eventosEnDia->first.c_str());
+					descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
+					prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
+					String^ horaInicio = gcnew String(eventosEnDia->second.horaInicio.c_str());
+					String^ horaFin = gcnew String(eventosEnDia->second.horaFin.c_str());
+					String^ lugarReunion = gcnew String(eventosEnDia->second.lugarReunion.c_str());
+					String^ personaInvolucrada = gcnew String(eventosEnDia->second.personaInvolucrada.c_str());
+					String^ materiales = gcnew String(eventosEnDia->second.materiales.c_str());
+					String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
+					// imprime las propiedades del evento en el ListBox
+					listBox1->Items->Add("Tipo de Evento: " + tipo);
+					listBox1->Items->Add("Id del Evento: " + id);
+					listBox1->Items->Add("Descripcion del Evento: " + descripcion);
+					listBox1->Items->Add("prioridad del Evento: " + prioridad);
+					listBox1->Items->Add("Hora de Inicio: " + horaInicio);
+					listBox1->Items->Add("Hora de Finalizacion: " + horaFin);
+					listBox1->Items->Add("Lugar de Reunion: " + lugarReunion);
+					listBox1->Items->Add("Persona Involucrada: " + personaInvolucrada);
+					listBox1->Items->Add("Materiales: " + materiales);
 
-	//			}
-	//			// Si la llave es Recordatorio muestra los Recordatorios
-	//			if (eventosEnDia->first == "recordatorio")
-	//			{
-	//				listBox1->Items->Add("");
-	//				tipo = gcnew String(eventosEnDia->first.c_str());
-	//				descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
-	//				prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
-	//				String^ horaLimite = gcnew String(eventosEnDia->second.horaFin.c_str());
-	//				String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
-	//				// imprime las propiedades del evento en el ListBox
-	//				listBox1->Items->Add("Tipo de Evento: " + tipo);
-	//				listBox1->Items->Add("Id del Evento: " + id);
-	//				listBox1->Items->Add("Descripcion del Evento: " + descripcion);
-	//				listBox1->Items->Add("prioridad del Evento: " + prioridad);
-	//				listBox1->Items->Add("Hora Limite de Recordatorio: " + horaLimite);
+				}
+				// Si la llave es Recordatorio muestra los Recordatorios
+				if (eventosEnDia->first == "recordatorio")
+				{
+					listBox1->Items->Add("");
+					tipo = gcnew String(eventosEnDia->first.c_str());
+					descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
+					prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
+					String^ horaLimite = gcnew String(eventosEnDia->second.horaFin.c_str());
+					String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
+					// imprime las propiedades del evento en el ListBox
+					listBox1->Items->Add("Tipo de Evento: " + tipo);
+					listBox1->Items->Add("Id del Evento: " + id);
+					listBox1->Items->Add("Descripcion del Evento: " + descripcion);
+					listBox1->Items->Add("prioridad del Evento: " + prioridad);
+					listBox1->Items->Add("Hora Limite de Recordatorio: " + horaLimite);
 
-	//			}
+				}
 
-	//			// Si la llave es Àlarma muestra las Alarmas
-	//			if (eventosEnDia->first == "alarma")
-	//			{
-	//				listBox1->Items->Add("");
-	//				tipo = gcnew String(eventosEnDia->first.c_str());
-	//				descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
-	//				prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
-	//				String^ horaLimite = gcnew String(eventosEnDia->second.horaLimite.c_str());
-	//				String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
-	//				// imprime las propiedades del evento en el ListBox
-	//				listBox1->Items->Add("Tipo de Evento: " + tipo);
-	//				listBox1->Items->Add("Id del Evento: " + id);
-	//				listBox1->Items->Add("Descripcion del Evento: " + descripcion);
-	//				listBox1->Items->Add("prioridad del Evento: " + prioridad);
-	//				listBox1->Items->Add("Hora Limite de Recordatorio: " + horaLimite);
-	//			}
+				// Si la llave es Àlarma muestra las Alarmas
+				if (eventosEnDia->first == "alarma")
+				{
+					listBox1->Items->Add("");
+					tipo = gcnew String(eventosEnDia->first.c_str());
+					descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
+					prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
+					String^ horaLimite = gcnew String(eventosEnDia->second.horaLimite.c_str());
+					String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
+					// imprime las propiedades del evento en el ListBox
+					listBox1->Items->Add("Tipo de Evento: " + tipo);
+					listBox1->Items->Add("Id del Evento: " + id);
+					listBox1->Items->Add("Descripcion del Evento: " + descripcion);
+					listBox1->Items->Add("prioridad del Evento: " + prioridad);
+					listBox1->Items->Add("Hora Limite de Recordatorio: " + horaLimite);
+				}
 
-	//			//Siguiente evento 
-	//			eventosEnDia++;
-	//		}
-	//		listBox1->Items->Add("                                                       ");
-	//		emptyEvents = false;
-	//		break;
-	//	}
-	//	else {
-	//		emptyEvents = true;
-	//	}
+				//Siguiente evento 
+				eventosEnDia++;
+			}
+			listBox1->Items->Add("                                                       ");
+			emptyEvents = false;
+			break;
+		}
+		else {
+			emptyEvents = true;
+		}
 	}
 
-	//if (emptyEvents)
-	//{
-	//	listBox1->Items->Add("");
-	//	listBox1->Items->Add("No hay eventos agendados");
-	//}
+	if (emptyEvents)
+	{
+		listBox1->Items->Add("");
+		listBox1->Items->Add("No hay eventos agendados");
+	}
 }
 };
 }

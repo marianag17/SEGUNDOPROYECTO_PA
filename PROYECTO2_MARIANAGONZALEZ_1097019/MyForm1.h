@@ -10,7 +10,8 @@
 #include <sstream>
 #include <string>
 #include "MyForm.h"
-Usuario arrayUs[];
+#include "ElUsuario.h"
+ElUsuario datosUsuario;
 namespace PROYECTO2MARIANAGONZALEZ1097019 {
 
 	using namespace System;

@@ -1,14 +1,4 @@
-﻿  ElUsuario.cpp
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MyForm.cpp
+﻿  MyForm.cpp
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -24,9 +14,6 @@ c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\pr
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(247): warning C4101: 'descripcion': unreferenced local variable
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(248): warning C4101: 'prioridad': unreferenced local variable
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(246): warning C4101: 'tipo': unreferenced local variable
   MyForm1.cpp
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -43,9 +30,6 @@ c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\pr
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(247): warning C4101: 'descripcion': unreferenced local variable
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(248): warning C4101: 'prioridad': unreferenced local variable
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform.h(246): warning C4101: 'tipo': unreferenced local variable
   MyForm2.cpp
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\myform2.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -59,13 +43,6 @@ c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\pr
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\elusuario.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  dia.cpp
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\luis\desktop\segundo ciclo 2019\pa\proyecto2_marianagonzalez_1097019\proyecto2_marianagonzalez_1097019\dia.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...
   Actividad.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-MyForm1.obj : error LNK2005: "class ElUsuario PROYECTO2MARIANAGONZALEZ1097019::datosUsuario" (?datosUsuario@PROYECTO2MARIANAGONZALEZ1097019@@3VElUsuario@@A) already defined in MyForm.obj
-C:\Users\luis\Desktop\SEGUNDO CICLO 2019\PA\PROYECTO2_MARIANAGONZALEZ_1097019\Debug\PROYECTO2_MARIANAGONZALEZ_1097019.exe : fatal error LNK1169: one or more multiply defined symbols found
+  PROYECTO2_MARIANAGONZALEZ_1097019.vcxproj -> C:\Users\luis\Desktop\SEGUNDO CICLO 2019\PA\PROYECTO2_MARIANAGONZALEZ_1097019\Debug\PROYECTO2_MARIANAGONZALEZ_1097019.exe
