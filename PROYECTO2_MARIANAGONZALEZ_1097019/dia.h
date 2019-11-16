@@ -2,13 +2,16 @@
 #include <iostream>; 
 #include <string>;
 #include <vector>;
-#include "General.h";
+#include <map>;
+#include "ElEvento.h";
 class dia
 {
 public:
+	std::string fecha;
+	std::multimap<std::string, ElEvento> eventos;
 	dia();
 	~dia();
-	std::string fecha;
-	std::vector<General> eventos;
+
+
 };
 

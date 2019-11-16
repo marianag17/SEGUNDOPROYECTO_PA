@@ -1,17 +1,26 @@
 #pragma once
+#include<windows.h>
+#include <iostream>;
+#include <string>;
+#include <msclr\marshal_cppstd.h>;
+#include <Servprov.h> 
 #include <fstream> 
 #include "Actividad.h"
 #include "Alarma.h"
 #include "General.h"
 #include "Recordatorio.h"
-#include <msclr\marshal_cppstd.h>
+#include <utility>
+#include <map>
+#include <iomanip>
 #include <iostream>
 #include <list>
 #include <iterator> 
 #include <vector> 
-#include "Usuario.h"
-#include <string>
+#include "dia.h"
+#include "ElUsuario.h"
+#include "ElEvento.h"
 #include "Lista.h"
+
 namespace PROYECTO2MARIANAGONZALEZ1097019 {
 
 	using namespace System;
@@ -20,6 +29,9 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
+	static dia diaActual;
+	extern ElUsuario datosUsuario;
 
 	/// <summary>
 	/// Summary for MyForm2
@@ -196,7 +208,7 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(212, 23);
+			this->label1->Location = System::Drawing::Point(224, 22);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(235, 17);
 			this->label1->TabIndex = 11;
@@ -347,14 +359,18 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 		bool alarma = false;
 		bool recordatorio = false;
 		bool actividad = false;
+		String^ fecha;
+		String^ usuario;
 		public: MyForm2(String^ fec, String^ us)
 		{
 			InitializeComponent();
-			fec = fecha;
-			us = usuario;
+			fecha = fec;
+			usuario = us;
+			InitializeComponent();
+			dia diaEstadoActual;
+			diaActual = diaEstadoActual;
 		}
-		String^ fecha;
-		String^ usuario;
+
 	private: System::Void MyForm2_Load(System::Object^  sender, System::EventArgs^  e) {
 		dateTimePicker1->CustomFormat = "HH:mm";
 		dateTimePicker2->CustomFormat = "HH:mm";
@@ -424,7 +440,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		label4->Enabled = true;
 		recordatorio = true;
 	}
-	else
+	if (radioButton3->Checked == false && radioButton2->Checked == false&& radioButton1->Checked == false)
 	{
 		System::Windows::Forms::MessageBox::Show("Debe seleccionar un tipo de evento", "Aviso");
 	}
@@ -434,79 +450,83 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	std::string textousuario = context.marshal_as<std::string>(usuario);
 	if (actividad)
 	{
-		Actividad nuevaactividad;
-		nuevaactividad.horainicio = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker1->Value.ToShortTimeString()).ToString("h:mm tt"));
-		nuevaactividad.horafin = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker2->Value.ToShortTimeString()).ToString("h:mm tt"));
-		nuevaactividad.descripcion = context.marshal_as<std::string>(textBox3->Text->ToString());
-		nuevaactividad.personas = context.marshal_as<std::string>(textBox4->Text->ToString());
-		nuevaactividad.materiales = context.marshal_as<std::string>(textBox5->Text->ToString());
-		nuevaactividad.lugar = context.marshal_as<std::string>(textBox7->Text->ToString());
-		nuevaactividad.identificador = context.marshal_as<std::string>(textBox6->Text->ToString());
-		nuevaactividad.fecha = context.marshal_as<std::string>(fecha);
-		if (comboBox1->SelectedItem == "Muy importante")
+		Actividad newActividad;
+		std::string ID = context.marshal_as<std::string>(textBox6->Text->ToString());
+		newActividad.identificador = ID;
+		std::string Description = context.marshal_as<std::string>(textBox3->Text->ToString());
+		newActividad.descripcion = Description;
+		newActividad.horainicio = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker1->Value.ToShortTimeString()).ToString("h:mm tt"));
+		newActividad.horafin = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker1->Value.ToShortTimeString()).ToString("h:mm tt"));
+		std::string Lugar = context.marshal_as<std::string>(textBox7->Text->ToString());
+		newActividad.lugar = Lugar;
+		std::string Materiales = context.marshal_as<std::string>(textBox5->Text->ToString());
+		newActividad.materiales = Materiales;
+		if (comboBox1->SelectedItem== "Muy importante")
 		{
-			nuevaactividad.prioridad = 10;
+			newActividad.prioridad = 10;
 		}
 		if (comboBox1->SelectedItem == "Importante")
 		{
-			nuevaactividad.prioridad = 6;
+			newActividad.prioridad = 6;
 		}
 		if (comboBox1->SelectedItem == "Poco importante")
 		{
-			nuevaactividad.prioridad = 3;
+			newActividad.prioridad = 3;
 		}
-		listaev->Insertar(nuevaactividad);
 		cant++;
-	}
-	//if (alarma)
-	//{
-	//	Alarma nuevaalarma;
-	//	nuevaalarma.horafin = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker2->Value.ToShortTimeString()).ToString("h:mm tt"));
-	//	nuevaalarma.descripcion = context.marshal_as<std::string>(textBox3->Text->ToString());
-	//	if (comboBox1->SelectedItem == "Muy importante")
-	//	{
-	//		nuevaalarma.prioridad = 10;
-	//	}
-	//	if (comboBox1->SelectedItem == "Importante")
-	//	{
-	//		nuevaalarma.prioridad = 6;
-	//	}
-	//	if (comboBox1->SelectedItem == "Poco importante")
-	//	{
-	//		nuevaalarma.prioridad = 3;
-	//	}
-	//	nuevaalarma.identificador = context.marshal_as<std::string>(textBox6->Text->ToString());
-	//	nuevaalarma.fecha = context.marshal_as<std::string>(fecha);
-	//	listaev->Insertar(nuevaalarma);
-	//	cant++;
-	//}
-	//if (recordatorio)
-	//{
-	//	Recordatorio nuevorecordatorio;
-	//	nuevorecordatorio.horafin = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker2->Value.ToShortTimeString()).ToString("h:mm tt"));
-	//	nuevorecordatorio.descripcion = context.marshal_as<std::string>(textBox3->Text->ToString());
-	//	if (comboBox1->SelectedItem == "Muy importante")
-	//	{
-	//		nuevorecordatorio.prioridad = 10;
-	//	}
-	//	if (comboBox1->SelectedItem == "Importante")
-	//	{
-	//		nuevorecordatorio.prioridad = 6;
-	//	}
-	//	if (comboBox1->SelectedItem == "Poco importante")
-	//	{
-	//		nuevorecordatorio.prioridad = 3;
-	//	}
-	//	nuevorecordatorio.identificador = context.marshal_as<std::string>(textBox6->Text->ToString());
-	//	/*nuevorecordatorio.fecha = context.marshal_as<std::string>(fecha);*/
-	//	listaev->Insertar(nuevorecordatorio);
-	//	cant++;
-	//	/*MyForm^ form = gcnew MyForm;
-	//	form->listBox1->Items->Add("");*/
+		ElEvento eventos(newActividad);
+		diaActual.eventos.insert(pair<string, ElEvento>("Actividad", eventos));
 
-	//}
+	}
+	if (alarma)
+	{
+		Alarma newAlarma;
+		std::string ID = context.marshal_as<std::string>(textBox6->Text->ToString());
+		newAlarma.identificador = ID;
+		std::string Description = context.marshal_as<std::string>(textBox3->Text->ToString());
+		newAlarma.descripcion = Description;
+		newAlarma.horafin = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker1->Value.ToShortTimeString()).ToString("h:mm tt"));
+		if (comboBox1->SelectedItem == "Muy importante")
+		{
+			newAlarma.prioridad = 10;
+		}
+		if (comboBox1->SelectedItem == "Importante")
+		{
+			newAlarma.prioridad = 6;
+		}
+		if (comboBox1->SelectedItem == "Poco importante")
+		{
+			newAlarma.prioridad = 3;
+		}
+		cant++;
+		ElEvento eventos(newAlarma);
+		diaActual.eventos.insert(pair<string, ElEvento>("Alarma", eventos));
+	}
+	if (recordatorio)
+	{
+		Recordatorio newRecordatorio;
+		std::string ID = context.marshal_as<std::string>(textBox6->Text->ToString());
+		newRecordatorio.identificador = ID;
+		std::string Description = context.marshal_as<std::string>(textBox3->Text->ToString());
+		newRecordatorio.descripcion = Description;
+		newRecordatorio.horafin = context.marshal_as<std::string>(Convert::ToDateTime(dateTimePicker1->Value.ToShortTimeString()).ToString("h:mm tt"));
+		if (comboBox1->SelectedItem == "Muy importante")
+		{
+			newRecordatorio.prioridad = 10;
+		}
+		if (comboBox1->SelectedItem == "Importante")
+		{
+			newRecordatorio.prioridad = 6;
+		}
+		if (comboBox1->SelectedItem == "Poco importante")
+		{
+			newRecordatorio.prioridad = 3;
+		}
+		cant++;
+		ElEvento eventos(newRecordatorio);
+		diaActual.eventos.insert(pair<string, ElEvento>("Recordatorio", eventos));
+	}
 	MyForm2::Visible = false;
-	
 
 }
 

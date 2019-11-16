@@ -4,11 +4,13 @@
 #include <list>
 #include <iterator> 
 #include <vector> 
+#include <utility>;
+#include <map>;
+#include <iomanip>;
 #include <fstream> 
-#include "Usuario.h"
+#include "ElUsuario.h"
 #include <string>
 #include "MyForm2.h"
-#include "Lista.h"
 namespace PROYECTO2MARIANAGONZALEZ1097019 {
 
 	using namespace System;
@@ -17,7 +19,8 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace std;
+	ElUsuario datosUsuario;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -197,12 +200,13 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 	}
 #pragma endregion
 		public:
+			String^ usuario;
 			MyForm(String^ us)
 			{
 				InitializeComponent();
-				us = usuario;
+				usuario = us;
 			}
-			String^ usuario;
+			
 			
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	
@@ -229,23 +233,108 @@ namespace PROYECTO2MARIANAGONZALEZ1097019 {
 	}
 	
 private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
-	//MyForm2 ^form = gcnew MyForm2();
-	//Lista* listaux;
-	//Lista* main;
-	//String^ fecha = Convert::ToString(monthCalendar1->SelectionRange->Start);
-	//msclr::interop::marshal_context context;
-	//std::string lafecha = context.marshal_as<std::string>(fecha);
-	//int cont = 0;
+	//Limpiando el ListBox
+	listBox1->Items->Clear();
+	// Fecha seleccionada en el monthCalendar
+	String^ fechaSeleccionada = monthCalendar1->SelectionRange->Start.ToString("dd MMM yyyy");
+	msclr::interop::marshal_context context;
+	// Fecha Seleccionada convertida a std 
+	std::string FechaSeleccionada = context.marshal_as<std::string>(fechaSeleccionada);
+	// Impresion de la fecha Seleccionada en el ListBox
+	listBox1->Items->Add("Eventos del: " + fechaSeleccionada);
+	bool emptyEvents = false;
+	String^ tipo;
+	String^ descripcion;
+	String^ prioridad;
+	// For each que recorre los dias Registrados (Dias con eventos)
+	for each (dia losdias in datosUsuario.dias)
+	{
+	//	// Verifica si la fecha del dia registrado es igual a la fecha seleccionada en el monthCalendar
+	//	if (losdias.fecha == FechaSeleccionada)
+	//	{
+	//		// Recorre los eventos Registrados en el dia 
+	//		multimap<std::string, ElEvento>::iterator eventosEnDia = losdias.eventos.begin();
+	//		while (eventosEnDia != losdias.eventos.end())
+	//		{
 
-	//while (form->listaev->Primero() != lafecha)
+	//			// Si la llave es actividad muestra las actividades
+	//			if (eventosEnDia->first == "actividad")
+	//			{
+	//			
+	//				listBox1->Items->Add("");
+	//				// Convierte las propiedades de los eventos a String
+	//				tipo = gcnew String(eventosEnDia->first.c_str());
+	//				descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
+	//				prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
+	//				String^ horaInicio = gcnew String(eventosEnDia->second.horaInicio.c_str());
+	//				String^ horaFin = gcnew String(eventosEnDia->second.horaFin.c_str());
+	//				String^ lugarReunion = gcnew String(eventosEnDia->second.lugarReunion.c_str());
+	//				String^ personaInvolucrada = gcnew String(eventosEnDia->second.personaInvolucrada.c_str());
+	//				String^ materiales = gcnew String(eventosEnDia->second.materiales.c_str());
+	//				String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
+	//				// imprime las propiedades del evento en el ListBox
+	//				listBox1->Items->Add("Tipo de Evento: " + tipo);
+	//				listBox1->Items->Add("Id del Evento: " + id);
+	//				listBox1->Items->Add("Descripcion del Evento: " + descripcion);
+	//				listBox1->Items->Add("prioridad del Evento: " + prioridad);
+	//				listBox1->Items->Add("Hora de Inicio: " + horaInicio);
+	//				listBox1->Items->Add("Hora de Finalizacion: " + horaFin);
+	//				listBox1->Items->Add("Lugar de Reunion: " + lugarReunion);
+	//				listBox1->Items->Add("Persona Involucrada: " + personaInvolucrada);
+	//				listBox1->Items->Add("Materiales: " + materiales);
+
+	//			}
+	//			// Si la llave es Recordatorio muestra los Recordatorios
+	//			if (eventosEnDia->first == "recordatorio")
+	//			{
+	//				listBox1->Items->Add("");
+	//				tipo = gcnew String(eventosEnDia->first.c_str());
+	//				descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
+	//				prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
+	//				String^ horaLimite = gcnew String(eventosEnDia->second.horaFin.c_str());
+	//				String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
+	//				// imprime las propiedades del evento en el ListBox
+	//				listBox1->Items->Add("Tipo de Evento: " + tipo);
+	//				listBox1->Items->Add("Id del Evento: " + id);
+	//				listBox1->Items->Add("Descripcion del Evento: " + descripcion);
+	//				listBox1->Items->Add("prioridad del Evento: " + prioridad);
+	//				listBox1->Items->Add("Hora Limite de Recordatorio: " + horaLimite);
+
+	//			}
+
+	//			// Si la llave es Àlarma muestra las Alarmas
+	//			if (eventosEnDia->first == "alarma")
+	//			{
+	//				listBox1->Items->Add("");
+	//				tipo = gcnew String(eventosEnDia->first.c_str());
+	//				descripcion = gcnew String(eventosEnDia->second.Descripcion.c_str());
+	//				prioridad = gcnew String(eventosEnDia->second.prioridad.ToString());
+	//				String^ horaLimite = gcnew String(eventosEnDia->second.horaLimite.c_str());
+	//				String^ id = gcnew String(eventosEnDia->second.idEvento.c_str());
+	//				// imprime las propiedades del evento en el ListBox
+	//				listBox1->Items->Add("Tipo de Evento: " + tipo);
+	//				listBox1->Items->Add("Id del Evento: " + id);
+	//				listBox1->Items->Add("Descripcion del Evento: " + descripcion);
+	//				listBox1->Items->Add("prioridad del Evento: " + prioridad);
+	//				listBox1->Items->Add("Hora Limite de Recordatorio: " + horaLimite);
+	//			}
+
+	//			//Siguiente evento 
+	//			eventosEnDia++;
+	//		}
+	//		listBox1->Items->Add("                                                       ");
+	//		emptyEvents = false;
+	//		break;
+	//	}
+	//	else {
+	//		emptyEvents = true;
+	//	}
+	}
+
+	//if (emptyEvents)
 	//{
-	//	listaux->Insertar(form->listaev->QuitarPrimero());
-	//}
-	//main->Insertar(form->listaev->QuitarPrimero());
-	//listBox1->Items->Add(gcnew String(main->Imprimir() .c_str()));
-	//for (int i = 0; i < form->cant - cont; i++)
-	//{
-	//	form->listaev->Insertar(listaux->QuitarPrimero());
+	//	listBox1->Items->Add("");
+	//	listBox1->Items->Add("No hay eventos agendados");
 	//}
 }
 };

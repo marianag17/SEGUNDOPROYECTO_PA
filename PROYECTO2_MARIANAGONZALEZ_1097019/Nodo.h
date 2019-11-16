@@ -7,7 +7,6 @@ public:
 	~Nodo();
 public: 
 	Nodo * Siguiente;
-	Nodo * Anterior;
 	General valor;
 };
 

@@ -136,6 +136,8 @@
     <ClCompile Include="Actividad.cpp" />
     <ClCompile Include="Alarma.cpp" />
     <ClCompile Include="dia.cpp" />
+    <ClCompile Include="ElEvento.cpp" />
+    <ClCompile Include="ElUsuario.cpp" />
     <ClCompile Include="General.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -149,6 +151,8 @@
     <ClInclude Include="Actividad.h" />
     <ClInclude Include="Alarma.h" />
     <ClInclude Include="dia.h" />
+    <ClInclude Include="ElEvento.h" />
+    <ClInclude Include="ElUsuario.h" />
     <ClInclude Include="General.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="MyForm.h">
